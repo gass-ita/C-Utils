@@ -802,7 +802,7 @@ void writeTreeToFile(const char *filename, TreeNode *root)
 
 // Linked List functions
 
-int arrayList_getElement(LinkedList *list, int index, int *value)
+int arrayList_getElement(LinkedList *list, int index, void **value)
 {
     if (list == NULL)
         return 1;
@@ -823,7 +823,7 @@ int arrayList_getElement(LinkedList *list, int index, int *value)
     return 0;
 }
 
-int arrayList_append(LinkedList *list, int value)
+int arrayList_append(LinkedList *list, void *value)
 {
     ListNode *new_node = malloc(sizeof(ListNode));
     new_node->value = value;
@@ -856,7 +856,7 @@ int arrayList_create(LinkedList **list)
     return 0;
 }
 
-int arrayList_print(LinkedList *list)
+/* int arrayList_print(LinkedList *list)
 {
     if (list == NULL)
         return 1;
@@ -872,7 +872,7 @@ int arrayList_print(LinkedList *list)
 
     printf("]");
     return 0;
-}
+} */
 
 int arrayList_getSize(LinkedList *list)
 {

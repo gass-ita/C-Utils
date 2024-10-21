@@ -105,7 +105,7 @@ typedef struct LinkedList LinkedList;
 
 struct ListNode
 {
-    int value;
+    void *value;
     ListNode *next;
 };
 
@@ -114,9 +114,9 @@ struct LinkedList
     ListNode *first;
 };
 
-int arrayList_getElement(LinkedList *list, int index, int *value);
-int arrayList_append(LinkedList *list, int value);
-int arrayList_print(LinkedList *list);
+int arrayList_getElement(LinkedList *list, int index, void **value);
+int arrayList_append(LinkedList *list, void *value);
+// int arrayList_print(LinkedList *list);
 int arrayList_create(LinkedList **list);
 int arrayList_getSize(LinkedList *list);
 
