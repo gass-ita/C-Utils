@@ -424,41 +424,9 @@ void writeMatrixToFile(const char *filename, int **matrix, int rows, int columns
     fclose(file);
 }
 
-// Write a linked list to a file
-void writeListToFile(const char *filename, Node *head)
-{
-    FILE *file = fopen(filename, "w");
-    if (file == NULL)
-    {
-        printf("Error opening file %s\n", filename);
-        return;
-    }
-    Node *current = head;
-    while (current != NULL)
-    {
-        fprintf(file, "%d -> ", current->data);
-        current = current->next;
-    }
-    fprintf(file, "NULL\n");
-    fclose(file);
-}
-
-// Write a binary tree to a file
-void writeTreeToFile(const char *filename, TreeNode *root)
-{
-    FILE *file = fopen(filename, "w");
-    if (file == NULL)
-    {
-        printf("Error opening file %s\n", filename);
-        return;
-    }
-    printTreeInOrder(root);
-    fclose(file);
-}
-
 // Linked List functions
 
-int arrayList_getElement(LinkedList *list, int index, void **value)
+int linkedList_getElement(LinkedList *list, int index, void **value)
 {
     if (list == NULL)
         return 1;
@@ -479,7 +447,7 @@ int arrayList_getElement(LinkedList *list, int index, void **value)
     return 0;
 }
 
-int arrayList_append(LinkedList *list, void *value)
+int linkedList_append(LinkedList *list, void *value)
 {
     ListNode *new_node = malloc(sizeof(ListNode));
     new_node->value = value;
@@ -502,7 +470,7 @@ int arrayList_append(LinkedList *list, void *value)
     return 0;
 }
 
-int arrayList_create(LinkedList **list)
+int linkedList_create(LinkedList **list)
 {
     LinkedList *new_list = malloc(sizeof(LinkedList));
     if (new_list == NULL) // Always check if malloc fails
@@ -530,7 +498,7 @@ int arrayList_create(LinkedList **list)
     return 0;
 } */
 
-int arrayList_getSize(LinkedList *list)
+int linkedList_getSize(LinkedList *list)
 {
     if (list == NULL)
         return -1;
@@ -544,4 +512,31 @@ int arrayList_getSize(LinkedList *list)
     }
 
     return size;
+}
+
+int linkedList_destroy(LinkedList *list)
+{
+    if (list == NULL)
+        return -1;
+
+    ListNode *item = list->first;
+
+    if (item == NULL)
+    {
+        free(list);
+        return 0;
+    }
+
+    ListNode *next = item->next;
+
+    while (item != NULL)
+    {
+        next = item->next;
+        free(item);
+        item = next;
+    }
+
+    free(list);
+
+    return 0;
 }

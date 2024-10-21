@@ -69,10 +69,11 @@ struct LinkedList
     ListNode *first;
 };
 
-int arrayList_getElement(LinkedList *list, int index, void **value);
-int arrayList_append(LinkedList *list, void *value);
+int linkedList_getElement(LinkedList *list, int index, void **value);
+int linkedList_append(LinkedList *list, void *value);
 // int arrayList_print(LinkedList *list);
-int arrayList_create(LinkedList **list);
-int arrayList_getSize(LinkedList *list);
+int linkedList_create(LinkedList **list);
+int linkedList_getSize(LinkedList *list);
+int linkedList_destroy(LinkedList *list);
 
 #endif
