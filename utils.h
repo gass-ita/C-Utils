@@ -14,15 +14,12 @@ double getAvarageOfArray(int *array, int size);
 int arrayContains(int *array, int size, int num);
 void arrayReplace(int *array, int size, int val1, int val2);
 
-
-
 // MATRIX FUNCTIONS
 
 int **allocateMatrix(int rows, int columns);
 void randomMatrix(int **matrix, int rows, int columns, int min, int max);
 void printMatrix(int **matrix, int rows, int columns);
 void freeMatrix(int **matrix, int rows);
-
 
 // STRING FUNCTIONS
 
@@ -40,8 +37,6 @@ void reverseString(char *string);
 int isStringEmpty(char *string);
 int isStringPalindrome(char *string);
 
-
-
 // GENERAL UTILITY FUNCTIONS
 
 void swapInt(int *a, int *b);
@@ -50,9 +45,10 @@ int randomNumber(int min, int max);
 
 // LINKED LIST FUNCTIONS
 
-typedef struct Node {
+typedef struct Node
+{
     int data;
-    struct Node *next; 
+    struct Node *next;
 } Node;
 
 Node *createNode(int data);
@@ -69,7 +65,8 @@ void freeList(Node **head);
 
 // BINARY TREE FUNCTIONS
 
-typedef struct TreeNode {
+typedef struct TreeNode
+{
     int data;
     struct TreeNode *left;
     struct TreeNode *right;
@@ -99,5 +96,27 @@ void writeIntArrayToFile(const char *filename, int *array, int size);
 void writeMatrixToFile(const char *filename, int **matrix, int rows, int columns);
 void writeListToFile(const char *filename, Node *head);
 void writeTreeToFile(const char *filename, TreeNode *root);
+
+// ARRAY LIST
+
+typedef struct ListNode ListNode;
+
+typedef struct LinkedList LinkedList;
+
+struct ListNode
+{
+    int value;
+    ListNode *next;
+};
+
+struct LinkedList
+{
+    ListNode *first;
+};
+
+int arrayList_getElement(LinkedList *list, int index, int *value);
+int arrayList_append(LinkedList *list, int value);
+int arrayList_print(LinkedList *list);
+int arrayList_create(LinkedList **list);
 
 #endif
