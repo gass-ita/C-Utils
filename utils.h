@@ -118,5 +118,6 @@ int arrayList_getElement(LinkedList *list, int index, int *value);
 int arrayList_append(LinkedList *list, int value);
 int arrayList_print(LinkedList *list);
 int arrayList_create(LinkedList **list);
+int arrayList_getSize(LinkedList *list);
 
 #endif

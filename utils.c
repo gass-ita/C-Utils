@@ -873,3 +873,19 @@ int arrayList_print(LinkedList *list)
     printf("]");
     return 0;
 }
+
+int arrayList_getSize(LinkedList *list)
+{
+    if (list == NULL)
+        return -1;
+    ListNode *item = list->first;
+    int size = 0;
+
+    while (item != NULL)
+    {
+        size++;
+        item = item->next;
+    }
+
+    return size;
+}
