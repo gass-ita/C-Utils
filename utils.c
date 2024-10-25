@@ -91,7 +91,7 @@ int getSumOfArray(int *array, int size)
 }
 
 // Returns the average of the elements in an array
-double getAvarageOfArray(int *array, int size)
+double getAverageOfArray(int *array, int size)
 {
     return (double)getSumOfArray(array, size) / size;
 }
@@ -186,7 +186,7 @@ int countOccurrences(char *string, char c)
 }
 
 // Returns the length of a string
-int stringLenght(char *string)
+int stringLength(char *string)
 {
     return strlen(string);
 }
@@ -211,6 +211,30 @@ int stringContains(char *string, char c)
     for (int i = 0; i < size; i++)
         if (string[i] == c)
             return 1;
+    return 0;
+}
+
+int isSubstring(char *string, char *substring)
+{
+    int s_length = stringLength(string);
+    int sub_length = stringLength(substring);
+    for (int i = 0; i < s_length - sub_length; i++)
+    {
+        char c = string[i];
+        int isSub = 1;
+        for (int j = 0; j < sub_length; j++)
+        {
+            if (string[i + j] != substring[j])
+            {
+                isSub = 0;
+                break;
+            }
+        }
+
+        if (isSub)
+            return 1;
+    }
+
     return 0;
 }
 
